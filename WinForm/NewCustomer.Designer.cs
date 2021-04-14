@@ -30,15 +30,15 @@ namespace WinForm
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtCustomerName = new System.Windows.Forms.TextBox();
             this.txtCustomerID = new System.Windows.Forms.TextBox();
+            this.txtCustomerName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dtpOrderDate = new System.Windows.Forms.DateTimePicker();
             this.numOrderAmount = new System.Windows.Forms.NumericUpDown();
+            this.dtpOrderDate = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnCreateAccount = new System.Windows.Forms.Button();
             this.btnPlaceOrder = new System.Windows.Forms.Button();
             this.btnAddAnotherAccount = new System.Windows.Forms.Button();
@@ -61,14 +61,20 @@ namespace WinForm
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Добаление учетной записи";
             // 
-            // label1
+            // txtCustomerID
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Имя заказчика:";
+            this.txtCustomerID.Location = new System.Drawing.Point(170, 81);
+            this.txtCustomerID.Name = "txtCustomerID";
+            this.txtCustomerID.ReadOnly = true;
+            this.txtCustomerID.Size = new System.Drawing.Size(123, 23);
+            this.txtCustomerID.TabIndex = 3;
+            // 
+            // txtCustomerName
+            // 
+            this.txtCustomerName.Location = new System.Drawing.Point(117, 35);
+            this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.Size = new System.Drawing.Size(176, 23);
+            this.txtCustomerName.TabIndex = 2;
             // 
             // label2
             // 
@@ -79,19 +85,14 @@ namespace WinForm
             this.label2.TabIndex = 1;
             this.label2.Text = "Идентификатор клиента:";
             // 
-            // txtCustomerName
+            // label1
             // 
-            this.txtCustomerName.Location = new System.Drawing.Point(117, 35);
-            this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Size = new System.Drawing.Size(176, 23);
-            this.txtCustomerName.TabIndex = 2;
-            // 
-            // txtCustomerID
-            // 
-            this.txtCustomerID.Location = new System.Drawing.Point(170, 81);
-            this.txtCustomerID.Name = "txtCustomerID";
-            this.txtCustomerID.Size = new System.Drawing.Size(123, 23);
-            this.txtCustomerID.TabIndex = 3;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Имя заказчика:";
             // 
             // groupBox2
             // 
@@ -106,14 +107,25 @@ namespace WinForm
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Создание заказа";
             // 
-            // label3
+            // numOrderAmount
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 44);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 15);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Сумма заказа:";
+            this.numOrderAmount.Location = new System.Drawing.Point(170, 36);
+            this.numOrderAmount.Maximum = new decimal(new int[] {
+            5000,
+            0,
+            0,
+            0});
+            this.numOrderAmount.Name = "numOrderAmount";
+            this.numOrderAmount.Size = new System.Drawing.Size(120, 23);
+            this.numOrderAmount.TabIndex = 3;
+            // 
+            // dtpOrderDate
+            // 
+            this.dtpOrderDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpOrderDate.Location = new System.Drawing.Point(93, 86);
+            this.dtpOrderDate.Name = "dtpOrderDate";
+            this.dtpOrderDate.Size = new System.Drawing.Size(200, 23);
+            this.dtpOrderDate.TabIndex = 2;
             // 
             // label4
             // 
@@ -124,19 +136,14 @@ namespace WinForm
             this.label4.TabIndex = 1;
             this.label4.Text = "Дата заказ:";
             // 
-            // dtpOrderDate
+            // label3
             // 
-            this.dtpOrderDate.Location = new System.Drawing.Point(93, 86);
-            this.dtpOrderDate.Name = "dtpOrderDate";
-            this.dtpOrderDate.Size = new System.Drawing.Size(200, 23);
-            this.dtpOrderDate.TabIndex = 2;
-            // 
-            // numOrderAmount
-            // 
-            this.numOrderAmount.Location = new System.Drawing.Point(170, 36);
-            this.numOrderAmount.Name = "numOrderAmount";
-            this.numOrderAmount.Size = new System.Drawing.Size(120, 23);
-            this.numOrderAmount.TabIndex = 3;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(20, 44);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 15);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Сумма заказа:";
             // 
             // btnCreateAccount
             // 
@@ -146,6 +153,7 @@ namespace WinForm
             this.btnCreateAccount.TabIndex = 2;
             this.btnCreateAccount.Text = "Создать учетную запись";
             this.btnCreateAccount.UseVisualStyleBackColor = true;
+            this.btnCreateAccount.Click += new System.EventHandler(this.btnCreateAccount_Click);
             // 
             // btnPlaceOrder
             // 
@@ -155,6 +163,7 @@ namespace WinForm
             this.btnPlaceOrder.TabIndex = 3;
             this.btnPlaceOrder.Text = "Разместить заказ";
             this.btnPlaceOrder.UseVisualStyleBackColor = true;
+            this.btnPlaceOrder.Click += new System.EventHandler(this.btnPlaceOrder_Click);
             // 
             // btnAddAnotherAccount
             // 

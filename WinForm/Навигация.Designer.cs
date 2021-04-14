@@ -1,7 +1,7 @@
 ﻿
 namespace WinForm
 {
-    partial class Навигация
+    partial class Navigation
     {
         /// <summary>
         /// Required designer variable.
@@ -43,6 +43,7 @@ namespace WinForm
             this.btnGoToAdd.TabIndex = 1;
             this.btnGoToAdd.Text = "Добавить учетную запись";
             this.btnGoToAdd.UseVisualStyleBackColor = true;
+            this.btnGoToAdd.Click += new System.EventHandler(this.btnGoToAdd_Click);
             // 
             // btnGoToFillOrCancel
             // 
@@ -52,6 +53,7 @@ namespace WinForm
             this.btnGoToFillOrCancel.TabIndex = 2;
             this.btnGoToFillOrCancel.Text = "Заполнить или отменить заказ";
             this.btnGoToFillOrCancel.UseVisualStyleBackColor = true;
+            this.btnGoToFillOrCancel.Click += new System.EventHandler(this.btnGoToFillOrCancel_Click);
             // 
             // btnExit
             // 
@@ -61,6 +63,7 @@ namespace WinForm
             this.btnExit.TabIndex = 3;
             this.btnExit.Text = "Выйти";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // label1
             // 
@@ -71,7 +74,7 @@ namespace WinForm
             this.label1.TabIndex = 4;
             this.label1.Text = "Выберите действия";
             // 
-            // Навигация
+            // Navigation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -80,7 +83,7 @@ namespace WinForm
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnGoToFillOrCancel);
             this.Controls.Add(this.btnGoToAdd);
-            this.Name = "Навигация";
+            this.Name = "Navigation";
             this.Text = "Навигация";
             this.ResumeLayout(false);
             this.PerformLayout();
