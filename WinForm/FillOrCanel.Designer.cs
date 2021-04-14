@@ -1,7 +1,7 @@
 ﻿
 namespace WinForm
 {
-    partial class Form1
+    partial class FillOrCanel
     {
         /// <summary>
         ///  Required designer variable.
