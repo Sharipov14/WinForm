@@ -82,7 +82,7 @@ namespace WinForm
                 using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.ConnString))
                 {
                     // Создаем SqlCommand и идентифицируем его как хранимую процедуру.
-                    using (SqlCommand command = new SqlCommand("Sales.upNewCustomer", connection))
+                    using (SqlCommand command = new SqlCommand("Sales.uspNewCustomer", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
