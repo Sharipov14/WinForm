@@ -120,9 +120,26 @@ namespace WinForm
             }
         }
 
+        /// <summary>
+        /// Вызывает хранимую процедуру Sales.uspPlaceNewOrder для размещения заказа.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPlaceOrder_Click(object sender, EventArgs e)
         {
-
+            // Убедитесь, что требуемый ввод присутствует.
+            if (IsOrderDataValid())
+            {
+                // Создаем соединение.
+                using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.ConnString))
+                {
+                    // Создаем SqlCommand и идентифицируем его как хранимую процедуру.
+                    using (SqlCommand sqlCommand = new SqlCommand("Sales.uspPlaceNewOrder", connection))
+                    {
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+                    }
+                }
+            }
         }
     }
 }
