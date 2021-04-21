@@ -85,6 +85,7 @@ namespace WinForm
             this.Controls.Add(this.btnGoToAdd);
             this.Name = "Navigation";
             this.Text = "Навигация";
+            this.Load += new System.EventHandler(this.Navigation_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

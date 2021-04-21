@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
@@ -137,9 +131,76 @@ namespace WinForm
                     using (SqlCommand sqlCommand = new SqlCommand("Sales.uspPlaceNewOrder", connection))
                     {
                         sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                        // Добавляем входной параметр @CustomerID, полученный от uspNewCustomer.
+                        sqlCommand.Parameters.Add(new SqlParameter("@CustomerID", SqlDbType.Int));
+                        sqlCommand.Parameters["@CustomerID"].Value = this.parsedCustomerID;
+
+                        // Добавляем входной параметр @OrderDate.
+                        sqlCommand.Parameters.Add(new SqlParameter("@OrderDate", SqlDbType.DateTime, 8));
+                        sqlCommand.Parameters["@OrderDate"].Value = dtpOrderDate.Value;
+
+                        // Добавляем входной параметр суммы ордера @Amount.
+                        sqlCommand.Parameters.Add(new SqlParameter("@Amount", SqlDbType.Int));
+                        sqlCommand.Parameters["@Amount"].Value = numOrderAmount.Value;
+
+                        // Добавляем входной параметр статуса ордера @Status.
+                        // Для нового ордера статус всегда O (открыт).
+                        sqlCommand.Parameters.Add(new SqlParameter("@Status", SqlDbType.Char, 1));
+                        sqlCommand.Parameters["@Status"].Value = "O";
+
+                        // Добавляем возвращаемое значение для хранимой процедуры, которое является идентификатором заказа.
+                        sqlCommand.Parameters.Add(new SqlParameter("@RC", SqlDbType.Int));
+                        sqlCommand.Parameters["@RC"].Direction = ParameterDirection.ReturnValue;
+
+                        try
+                        {
+                            // Открываем соединение.
+                            connection.Open();
+
+                            // Запуск хранимой процедуры.
+                            sqlCommand.ExecuteNonQuery();
+
+                            // Отображаем номер заказа.
+                            this.orderID = (int)sqlCommand.Parameters["@RC"].Value;
+                            MessageBox.Show("Order number " + this.orderID + " has been submitted.");
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Order could not be placed.");
+                        }
+                        finally
+                        {
+                            connection.Close();
+                        }
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Очищает данные формы, чтобы можно было создать еще одну новую учетную запись.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAddAnotherAccount_Click(object sender, EventArgs e)
+        {
+            this.ClearForm();
+        }
+
+        /// <summary>
+        /// Закрывает форму / диалоговое окно.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAddFinish_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void NewCustomer_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

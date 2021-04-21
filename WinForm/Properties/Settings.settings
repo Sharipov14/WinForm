@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="ConnString" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Data Source=DESKTOP-5Q9E6QS\SQLEXPRESS;Initial Catalog=Sales;Integrated Security=True;Pooling=False</Value>
+      <Value Profile="(Default)">Data Source=DESKTOP-2LFTD5R\SQLEXPRESS;Initial Catalog=Sales;Integrated Security=True;Pooling=False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

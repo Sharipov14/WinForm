@@ -33,9 +33,9 @@ namespace WinForm
             this.label2 = new System.Windows.Forms.Label();
             this.txtOrderID = new System.Windows.Forms.TextBox();
             this.btnFindByOrderID = new System.Windows.Forms.Button();
-            this.dptFillDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpFillDate = new System.Windows.Forms.DateTimePicker();
             this.dgvCustomerOrders = new System.Windows.Forms.DataGridView();
-            this.btnCanelOrder = new System.Windows.Forms.Button();
+            this.btnCancelOrder = new System.Windows.Forms.Button();
             this.btnFillOeder = new System.Windows.Forms.Button();
             this.btnFinishUpdates = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerOrders)).BeginInit();
@@ -74,14 +74,15 @@ namespace WinForm
             this.btnFindByOrderID.TabIndex = 3;
             this.btnFindByOrderID.Text = "Найти заказ";
             this.btnFindByOrderID.UseVisualStyleBackColor = true;
+            this.btnFindByOrderID.Click += new System.EventHandler(this.btnFindByOrderID_Click);
             // 
-            // dptFillDate
+            // dtpFillDate
             // 
-            this.dptFillDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dptFillDate.Location = new System.Drawing.Point(338, 165);
-            this.dptFillDate.Name = "dptFillDate";
-            this.dptFillDate.Size = new System.Drawing.Size(117, 23);
-            this.dptFillDate.TabIndex = 4;
+            this.dtpFillDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFillDate.Location = new System.Drawing.Point(338, 165);
+            this.dtpFillDate.Name = "dtpFillDate";
+            this.dtpFillDate.Size = new System.Drawing.Size(117, 23);
+            this.dtpFillDate.TabIndex = 4;
             // 
             // dgvCustomerOrders
             // 
@@ -94,14 +95,15 @@ namespace WinForm
             this.dgvCustomerOrders.Size = new System.Drawing.Size(569, 150);
             this.dgvCustomerOrders.TabIndex = 5;
             // 
-            // btnCanelOrder
+            // btnCancelOrder
             // 
-            this.btnCanelOrder.Location = new System.Drawing.Point(39, 415);
-            this.btnCanelOrder.Name = "btnCanelOrder";
-            this.btnCanelOrder.Size = new System.Drawing.Size(105, 23);
-            this.btnCanelOrder.TabIndex = 6;
-            this.btnCanelOrder.Text = "Отменить заказ";
-            this.btnCanelOrder.UseVisualStyleBackColor = true;
+            this.btnCancelOrder.Location = new System.Drawing.Point(39, 415);
+            this.btnCancelOrder.Name = "btnCancelOrder";
+            this.btnCancelOrder.Size = new System.Drawing.Size(105, 23);
+            this.btnCancelOrder.TabIndex = 6;
+            this.btnCancelOrder.Text = "Отменить заказ";
+            this.btnCancelOrder.UseVisualStyleBackColor = true;
+            this.btnCancelOrder.Click += new System.EventHandler(this.btnCancelOrder_Click);
             // 
             // btnFillOeder
             // 
@@ -111,6 +113,7 @@ namespace WinForm
             this.btnFillOeder.TabIndex = 7;
             this.btnFillOeder.Text = "Заполнить заказ";
             this.btnFillOeder.UseVisualStyleBackColor = true;
+            this.btnFillOeder.Click += new System.EventHandler(this.btnFillOeder_Click);
             // 
             // btnFinishUpdates
             // 
@@ -120,6 +123,7 @@ namespace WinForm
             this.btnFinishUpdates.TabIndex = 8;
             this.btnFinishUpdates.Text = "Готово";
             this.btnFinishUpdates.UseVisualStyleBackColor = true;
+            this.btnFinishUpdates.Click += new System.EventHandler(this.btnFinishUpdates_Click);
             // 
             // FillOrCanel
             // 
@@ -128,16 +132,15 @@ namespace WinForm
             this.ClientSize = new System.Drawing.Size(637, 450);
             this.Controls.Add(this.btnFinishUpdates);
             this.Controls.Add(this.btnFillOeder);
-            this.Controls.Add(this.btnCanelOrder);
+            this.Controls.Add(this.btnCancelOrder);
             this.Controls.Add(this.dgvCustomerOrders);
-            this.Controls.Add(this.dptFillDate);
+            this.Controls.Add(this.dtpFillDate);
             this.Controls.Add(this.btnFindByOrderID);
             this.Controls.Add(this.txtOrderID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FillOrCanel";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Text = "FillOrCanel";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerOrders)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -152,9 +155,10 @@ namespace WinForm
         private System.Windows.Forms.Button btnFindByOrderID;
         private System.Windows.Forms.DateTimePicker dptFillDate;
         private System.Windows.Forms.DataGridView dgvCustomerOrders;
-        private System.Windows.Forms.Button btnCanelOrder;
+        private System.Windows.Forms.Button btnCancelOrder;
         private System.Windows.Forms.Button btnFillOeder;
         private System.Windows.Forms.Button btnFinishUpdates;
+        private System.Windows.Forms.DateTimePicker dtpFillDate;
     }
 }
 
