@@ -43,9 +43,10 @@ namespace WinForm
             this.Close();
         }
 
-        private void Navigation_Load(object sender, EventArgs e)
+        private void btnGoToTableView_Click(object sender, EventArgs e)
         {
-
+            Form frm = new TableView();
+            frm.ShowDialog();
         }
     }
 }

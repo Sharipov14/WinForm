@@ -33,6 +33,7 @@ namespace WinForm
             this.btnGoToFillOrCancel = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnGoToTableView = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnGoToAdd
@@ -74,18 +75,28 @@ namespace WinForm
             this.label1.TabIndex = 4;
             this.label1.Text = "Выберите действия";
             // 
+            // btnGoToTableView
+            // 
+            this.btnGoToTableView.Location = new System.Drawing.Point(33, 190);
+            this.btnGoToTableView.Name = "btnGoToTableView";
+            this.btnGoToTableView.Size = new System.Drawing.Size(75, 23);
+            this.btnGoToTableView.TabIndex = 5;
+            this.btnGoToTableView.Text = "Таблица";
+            this.btnGoToTableView.UseVisualStyleBackColor = true;
+            this.btnGoToTableView.Click += new System.EventHandler(this.btnGoToTableView_Click);
+            // 
             // Navigation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(365, 225);
+            this.Controls.Add(this.btnGoToTableView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnGoToFillOrCancel);
             this.Controls.Add(this.btnGoToAdd);
             this.Name = "Navigation";
             this.Text = "Навигация";
-            this.Load += new System.EventHandler(this.Navigation_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,5 +108,6 @@ namespace WinForm
         private System.Windows.Forms.Button btnGoToFillOrCancel;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnGoToTableView;
     }
 }

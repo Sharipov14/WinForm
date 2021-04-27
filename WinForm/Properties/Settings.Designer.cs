@@ -25,7 +25,7 @@ namespace WinForm.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-2LFTD5R\\SQLEXPRESS;Initial Catalog=Sales;Integrated Security=" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-5Q9E6QS\\SQLEXPRESS;Initial Catalog=Sales;Integrated Security=" +
             "True;Pooling=False")]
         public string ConnString {
             get {

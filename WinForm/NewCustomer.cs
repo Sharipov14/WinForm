@@ -197,10 +197,5 @@ namespace WinForm
         {
             this.Close();
         }
-
-        private void NewCustomer_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
